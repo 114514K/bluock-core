@@ -12,7 +12,7 @@ type productionHandler struct {
 }
 
 func New(c *config.Config) productionHandler {
-	return productionHandler{ c }
+	return productionHandler{c}
 }
 
 func (handler productionHandler) lockScreenValidator(addr string) bool {

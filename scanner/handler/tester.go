@@ -8,14 +8,14 @@ import (
 )
 
 const (
-	loggingTemplate = "Address: %s RSSI: %d%s"
+	loggingTemplate    = "Address: %s RSSI: %d%s"
 	deviceNameTemplate = " Name: %s"
 )
 
-type connectionTestHandler struct {}
+type connectionTestHandler struct{}
 
 func NewTester() connectionTestHandler {
-	return connectionTestHandler {}
+	return connectionTestHandler{}
 }
 
 func (handler connectionTestHandler) OnScan(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {

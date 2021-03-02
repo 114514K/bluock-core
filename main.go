@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	runtimeOS = runtime.GOOS
+	runtimeOS  = runtime.GOOS
 	production = iota
 	connectionTest
 )
@@ -22,9 +22,11 @@ type options struct {
 }
 
 func parseArgs() options {
-	args := options{ mode: production }
-	isConnectionTest := *flag.Bool("connection-test", false, "Start bluetooth connection test")
-	if isConnectionTest {
+	args := options{mode: production}
+	isConnectionTest := flag.Bool("connection-test", false, "Start bluetooth connection test")
+
+	flag.Parse()
+	if *isConnectionTest {
 		args.mode = connectionTest
 	}
 
@@ -54,7 +56,6 @@ func main() {
 		panic(err)
 	}
 }
-
 
 func isSupportedOS() {
 	switch runtimeOS {

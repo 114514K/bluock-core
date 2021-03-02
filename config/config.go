@@ -8,9 +8,9 @@ import (
 )
 
 type Config struct {
-	RSSIThreshold int  `yaml:"rssi_threshold"`
-	MACAddresses []string `yaml:"mac_addresses"`
-	Locker locker.LockOperator `yaml:"-"`
+	RSSIThreshold int                 `yaml:"rssi_threshold"`
+	MACAddresses  []string            `yaml:"mac_addresses"`
+	Locker        locker.LockOperator `yaml:"-"`
 }
 
 func loadFromFile(path string) ([]byte, error) {
