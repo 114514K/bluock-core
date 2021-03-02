@@ -12,14 +12,18 @@ const (
 	deviceNameTemplate = " Name: %s"
 )
 
-type ConnectionTestHandler struct {}
+type connectionTestHandler struct {}
 
-func (handler ConnectionTestHandler) OnScan(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {
+func NewTester() connectionTestHandler {
+	return connectionTestHandler {}
+}
+
+func (handler connectionTestHandler) OnScan(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {
 	deviceName := device.LocalName()
 	deviceNameMessage := ""
 	if deviceName != "" {
 		deviceNameMessage = fmt.Sprintf(deviceNameTemplate, deviceName)
 	}
 
-	log.Printf(loggingTemplate, device.Address, device.RSSI, deviceNameMessage)
+	log.Printf(loggingTemplate, device.Address.String(), device.RSSI, deviceNameMessage)
 }
