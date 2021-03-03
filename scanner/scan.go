@@ -31,7 +31,7 @@ func ScanDevices(scanningHandler handler.BluetoothHandler) (err error) {
 
 	go handleFinish(sc)
 
-	err = adapter.Scan(scanningHandler.OnScan)
+	err = adapter.Scan(scanningHandler.OnDetected)
 
 	return
 }
