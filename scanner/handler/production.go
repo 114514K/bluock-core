@@ -25,7 +25,7 @@ func (handler productionHandler) lockScreenValidator(addr string) bool {
 	return false
 }
 
-func (handler productionHandler) OnDetected(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {
+func (handler productionHandler) OnScan(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {
 	if handler.c.RSSIThreshold > int(device.RSSI) && handler.lockScreenValidator(device.Address.String()) {
 		err := handler.c.Locker.ExecuteLock()
 		if err != nil {
