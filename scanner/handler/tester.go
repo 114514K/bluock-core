@@ -18,7 +18,7 @@ func NewTester() connectionTestHandler {
 	return connectionTestHandler{}
 }
 
-func (handler connectionTestHandler) OnScan(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {
+func (handler connectionTestHandler) OnDetected(adapter *bluetooth.Adapter, device bluetooth.ScanResult) {
 	deviceName := device.LocalName()
 	deviceNameMessage := ""
 	if deviceName != "" {
